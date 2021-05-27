@@ -3,7 +3,14 @@ import React, { Component }  from "react"
 class FormTask extends Component
 {
 
-
+constructor(props)
+{
+  super(props)
+  this.state = {
+    name:"",
+    status : null
+  }
+}
 renderOption =() =>{
   let {arrayStatus} = this.props
    return  arrayStatus.map((element) => {
@@ -23,13 +30,13 @@ renderOption =() =>{
             </div>
             <div className></div>
             <div className="panel-body">
-              <form>
+              <form onClick={this.props.onSubmit(this.state)}>
                 <div className="form-group">
                   <label>Tên :</label>
-                  <input type="text" className="form-control" />
+                  <input type="text" value={this.state.name} className="form-control" />
                 </div>
                 <label>Trạng Thái :</label>
-                <select className="form-control" required="required">
+                <select className="form-control" value={this.state.status} required="required">
                  {this.renderOption()}
                 
                 </select>

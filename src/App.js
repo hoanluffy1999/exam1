@@ -36,9 +36,13 @@ onCloseForm = () =>{
     isDisplayTask :false
   })
 }
+onSubmit =(data)=>{
+  console.log(data);
+}
 render(){
   var {tasks, isDisplayTask} = this.state;
-  var emlmentDisplay = isDisplayTask ? <FormTask arrayStatus={this.state.arrayStatus} onCloseForm={this.onCloseForm} ></FormTask>  : '';
+  var emlmentDisplay = isDisplayTask 
+        ? <FormTask  onSubmit={this.onSubmit} arrayStatus={this.state.arrayStatus} onCloseForm={this.onCloseForm} ></FormTask>  : '';
   return (
     <div className="container">
   <div className="text-center">

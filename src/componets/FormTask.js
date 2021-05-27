@@ -5,9 +5,14 @@ class FormTask extends Component
     render (){
         return(
             <div className="panel panel-warning">
-            <div className="panel-heading">
-              <h3 className="panel-title">Thêm Công Việc</h3>
+            <div className="panel-heading ">
+              <h3 className="panel-title">
+                    Thêm Công Việc
+                    <span className="text-right"><i className="fas fa-times-circle text-right" ></i></span>
+              </h3>
+             
             </div>
+            <div className></div>
             <div className="panel-body">
               <form>
                 <div className="form-group">

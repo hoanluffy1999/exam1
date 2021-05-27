@@ -12,7 +12,17 @@ constructor(props)
   super(props)
   this.state = {
     tasks : [],
-    isDisplayTask : false
+    isDisplayTask : false,
+    arrayStatus:[
+      {
+        keu : 1,
+        text : "Kích hoạt"
+      },
+      {
+        key:2,
+        text:"Ẩn"
+      }
+    ]
   }
 }
 
@@ -21,9 +31,14 @@ onToggeForm =() =>{
     isDisplayTask : !this.state.isDisplayTask
   })
 }
+onCloseForm = () =>{
+  this.setState({
+    isDisplayTask :false
+  })
+}
 render(){
   var {tasks, isDisplayTask} = this.state;
-  var emlmentDisplay = isDisplayTask ? <FormTask></FormTask>  : '';
+  var emlmentDisplay = isDisplayTask ? <FormTask arrayStatus={this.state.arrayStatus} onCloseForm={this.onCloseForm} ></FormTask>  : '';
   return (
     <div className="container">
   <div className="text-center">

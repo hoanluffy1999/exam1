@@ -2,13 +2,22 @@ import React, { Component }  from "react"
 
 class FormTask extends Component
 {
+
+
+renderOption =() =>{
+  let {arrayStatus} = this.props
+   return  arrayStatus.map((element) => {
+    return <option key={element.key} value={element.key}>{element.text}</option>
+  });
+}
+
     render (){
         return(
             <div className="panel panel-warning">
             <div className="panel-heading ">
               <h3 className="panel-title">
                     Thêm Công Việc
-                    <span className="text-right"><i className="fas fa-times-circle text-right" ></i></span>
+                    <div className="text-right" onClick={this.props.onCloseForm}><i className="fas fa-times-circle"></i></div>
               </h3>
              
             </div>
@@ -21,8 +30,8 @@ class FormTask extends Component
                 </div>
                 <label>Trạng Thái :</label>
                 <select className="form-control" required="required">
-                  <option value={1}>Kích Hoạt</option>
-                  <option value={0}>Ẩn</option>
+                 {this.renderOption()}
+                
                 </select>
                 <br />
                 <div className="text-center">
